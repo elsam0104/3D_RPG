@@ -109,7 +109,10 @@ public class PlayerController : MonoBehaviour
         {
             Managers.Resource.Destroy(prefab);
         }
-
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Managers.Sound.Play("Player/univ0001");
+        }
         if (dir != Vector3.zero)
         {
             anim.SetFloat("Movement", dir.magnitude);

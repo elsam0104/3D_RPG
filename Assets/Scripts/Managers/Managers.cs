@@ -9,9 +9,15 @@ public class Managers : MonoBehaviour
 
 
     #region CORE
+    DataManager _data = new DataManager();
     InputManager _input = new InputManager();
+    SoundManager _sound = new SoundManager();
+    SceneManagerEX _scene = new SceneManagerEX();
     ResourceManager _resource = new ResourceManager();
+    public static DataManager Data { get { return Instance._data; } }
     public static InputManager Input { get { return Instance._input; } }
+    public static SoundManager Sound { get { return Instance._sound; } }
+    public static SceneManagerEX Scene { get { return Instance._scene; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     #endregion
     void Start()
@@ -36,6 +42,16 @@ public class Managers : MonoBehaviour
             }
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._sound.Init();
+            s_instance._data.Init();
         }
+    }
+
+    //씬 전환 시 호출
+    public static void Clear()
+    {
+        Input.Clear();
+        Scene.Clear();
     }
 }
