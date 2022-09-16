@@ -10,11 +10,14 @@ public class Managers : MonoBehaviour
 
     #region CORE
     DataManager _data = new DataManager();
+    PoolManager _pool = new PoolManager();
     InputManager _input = new InputManager();
     SoundManager _sound = new SoundManager();
     SceneManagerEX _scene = new SceneManagerEX();
     ResourceManager _resource = new ResourceManager();
+
     public static DataManager Data { get { return Instance._data; } }
+    public static PoolManager Pool { get { return Instance._pool; } }
     public static InputManager Input { get { return Instance._input; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static SceneManagerEX Scene { get { return Instance._scene; } }
@@ -45,6 +48,7 @@ public class Managers : MonoBehaviour
 
             s_instance._sound.Init();
             s_instance._data.Init();
+            s_instance._pool.Init();
         }
     }
 
@@ -53,5 +57,7 @@ public class Managers : MonoBehaviour
     {
         Input.Clear();
         Scene.Clear();
+
+        Pool.Clear();
     }
 }
