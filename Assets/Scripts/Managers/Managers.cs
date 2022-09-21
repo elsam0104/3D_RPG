@@ -9,6 +9,7 @@ public class Managers : MonoBehaviour
 
 
     #region CORE
+    UIManager _ui = new UIManager();
     DataManager _data = new DataManager();
     PoolManager _pool = new PoolManager();
     InputManager _input = new InputManager();
@@ -16,6 +17,7 @@ public class Managers : MonoBehaviour
     SceneManagerEX _scene = new SceneManagerEX();
     ResourceManager _resource = new ResourceManager();
 
+    public static UIManager UI { get { return Instance._ui; } }
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static InputManager Input { get { return Instance._input; } }

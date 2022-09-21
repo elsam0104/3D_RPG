@@ -103,11 +103,13 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            prefab = Managers.Resource.Instantiate("Knight");
+            Managers.UI.ShowPopUpUI<UIButton>();
+            //prefab = Managers.Resource.Instantiate("Knight");
         }
         if(Input.GetKeyDown(KeyCode.V))
         {
-            Managers.Resource.Destroy(prefab);
+            Managers.UI.ClosePopUpUI();
+            //Managers.Resource.Destroy(prefab);
         }
         if(Input.GetKeyDown(KeyCode.F))
         {

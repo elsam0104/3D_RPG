@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager
 {
@@ -13,7 +14,8 @@ public class InputManager
     {
         if(Input.anyKey && KeyAction != null)
             KeyAction.Invoke();
-
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         if(MouseAction != null)
         {
             if(Input.GetMouseButton(0))

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Define
 {
+    public enum UIEvent
+    {
+        Click,
+        Drag,
+    }
     public enum Scene
     {
         Unknown,
         Login,
         Game,
     }
-
     public enum Sound
     {
         Bgm,
