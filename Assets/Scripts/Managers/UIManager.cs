@@ -36,6 +36,20 @@ public class UIManager
         }
     }
 
+    public T MakeWorldSpaceUI<T>(Transform parent = null,string name = null )where T : UIBase
+    {
+        if (string.IsNullOrEmpty(name))
+            name = typeof(T).Name;
+
+        GameObject go = Managers.Resource.Instantiate($"UI/WorldSpace/{name}");
+        if (parent != null)
+            go.transform.parent = parent;
+        Canvas canvas = Utill.GetOrAddComponent<Canvas>(go);
+        canvas.renderMode = RenderMode.WorldSpace;
+        canvas.worldCamera = Camera.main;
+
+        return Utill.GetOrAddComponent<T>(go);
+    }
     public T ShowSceneUI<T>(string name = null) where T : UIScene
     {
         if (string.IsNullOrEmpty(name))
