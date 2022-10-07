@@ -5,12 +5,20 @@ using UnityEngine;
 public class MonsterFSM : MonoBehaviour
 {
     private StateMachine<MonsterFSM> fsmManager;
+    public StateMachine<MonsterFSM> FsmManager => fsmManager;
 
-    public LayerMask targetLayerMask;
-    public float eyeSight; //시야범위
-    public Transform target;
+    private FieldOfView fov;
+    public Transform target => fov.FirstTarget;
+
     public float attackRange;
 
+    public Transform[] posTargets;
+    public Transform posTarget = null; //현 로밍 위치
+    public int posTargetIdx = 0;
+    public float TiredPoint { get; set; } = 0f;
+    public float HealPoint { get; set; } = 5.0f;
+    public float TiredIncreament { get; } = 3.0f;
+    public float SleepTime { get; } = 50f;
     public bool GetFlagAttack
     {
         get
@@ -23,9 +31,16 @@ public class MonsterFSM : MonoBehaviour
     }
     private void Start()
     {
-        fsmManager = new StateMachine<MonsterFSM>(this,new stateIdle());
+        fov = GetComponent<FieldOfView>();
+        fsmManager = new StateMachine<MonsterFSM>(this, new StateRomming());
+
+        stateIdle stateIdle = new stateIdle();
+        stateIdle.isRomming = true;
+        fsmManager.AddStateList(stateIdle);
         fsmManager.AddStateList(new stateMove());
+        fsmManager.AddStateList(new stateSleep());
         fsmManager.AddStateList(new stateAttack());
+
     }
     private void Update()
     {
@@ -38,12 +53,17 @@ public class MonsterFSM : MonoBehaviour
     }
     public Transform SearchEnemy()
     {
-        target = null;
-
-        Collider[] findTargets = Physics.OverlapSphere(transform.position, eyeSight, targetLayerMask);
-
-        if (findTargets.Length > 0)
-            target = findTargets[0].transform;
         return target;
+    }
+
+    public Transform SearchNextTargetPositon()
+    {
+        posTarget = null;
+        if (posTargets.Length > 0 && posTargets.Length > posTargetIdx)
+            posTarget = posTargets[posTargetIdx];
+
+        posTargetIdx = (posTargetIdx + 1) % posTargets.Length;
+
+        return posTarget;
     }
 }

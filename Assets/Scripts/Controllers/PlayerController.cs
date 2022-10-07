@@ -105,9 +105,15 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Managers.UI.ShowPopUpUI<UIButton>();
+            //Managers.UI.ShowPopUpUI<UIButton>();
+            anim.SetTrigger("Jump");
             //prefab = Managers.Resource.Instantiate("Knight");
         }
+        bool run =false;
+        if (Input.GetKey(KeyCode.LeftShift))
+            run = true;
+        anim.SetBool("Run", run);
+
         if(Input.GetKeyDown(KeyCode.V))
         {
             Managers.UI.ClosePopUpUI();
@@ -119,8 +125,10 @@ public class PlayerController : MonoBehaviour
         }
         if (dir != Vector3.zero)
         {
-            anim.SetFloat("Movement", dir.magnitude);
+            float move = dir.magnitude;
+            anim.SetFloat("Movement", move);
         }
+
     }
     void OnMouseClicked(Define.MouseEvent evt)
     {

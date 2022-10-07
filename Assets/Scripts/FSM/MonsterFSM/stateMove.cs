@@ -28,10 +28,11 @@ public class stateMove : State<MonsterFSM>
     public override void OnUpdate(float deltaTime)
     {
         Transform target = stateMachineClass.SearchEnemy();
-        if(target)
+        stateMachineClass.TiredPoint += stateMachineClass.TiredIncreament * Time.deltaTime;
+        if (target)
         {
             agent.SetDestination(stateMachineClass.target.position);
-            if(agent.remainingDistance>agent.stoppingDistance) //가고있는 중
+            if (agent.remainingDistance > agent.stoppingDistance) //가고있는 중
             {
                 characterController.Move(agent.velocity * deltaTime);
                 animator.SetFloat(hashMoveSpeed, agent.velocity.magnitude / agent.speed, 0.1f, deltaTime);
@@ -43,10 +44,10 @@ public class stateMove : State<MonsterFSM>
         }
         else //타겟 안 보임
         {
-                stateMachine.ChangeState<stateIdle>();
+            stateMachine.ChangeState<stateIdle>();
         }
     }
-
+    
     public override void OnEnd()
     {
         agent?.ResetPath();

@@ -13,15 +13,10 @@ public class GameScene : BaseScene
         Dictionary<int, Stat> dict = Managers.Data.StartDict;
 
         List<GameObject> list = new List<GameObject>();
-        for (int i = 0; i < 10; i++)
-        {
-            list.Add(Managers.Resource.Instantiate("Knight"));
-        }
-        for (int i = 0; i < 5; i++)
-        {
-            Managers.Resource.Destroy(list[i]);
-            list.RemoveAt(i);
-        }
+        //list.Add(Managers.Resource.Instantiate("Knight"));
+        //Managers.Resource.Destroy(list[i]);
+        //list.RemoveAt(i);
+
 
     }
     public override void Clear()

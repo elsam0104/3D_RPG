@@ -1769,6 +1769,7 @@ GameObject:
   - component: {fileID: 3725977350335383684}
   - component: {fileID: 7393588227038571689}
   - component: {fileID: 2361732465979016842}
+  - component: {fileID: -7912235698860584887}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -1862,11 +1863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdc4e24ad82f6d4cb158355c187dd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  eyeSight: 20
-  target: {fileID: 0}
   attackRange: 2
 --- !u!195 &2361732465979016842
 NavMeshAgent:
@@ -1890,6 +1886,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7912235698860584887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048025625645531089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcc86fee415e3a4eac634f7cf0ed4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyeRadius: 10
+  eyeAngle: 90
+  delayFindTime: 0.2
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  blockLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &6048025625645531091
 GameObject:
   m_ObjectHideFlags: 0

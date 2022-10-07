@@ -34,6 +34,14 @@ public class stateAttack : State<MonsterFSM>
             Vector3 dir = target.transform.position - monsterTranform.position;
             Quaternion quat = Quaternion.LookRotation(dir);
             monsterTranform.rotation = Quaternion.LerpUnclamped(monsterTranform.rotation, quat, 20.0f * deltaTime);
+            if(stateMachineClass.GetFlagAttack)
+            {
+                animator?.SetTrigger(hashAttack);
+            }
+            else
+            {
+                stateMachine.ChangeState<stateIdle>();
+            }
         }
         else
         {
