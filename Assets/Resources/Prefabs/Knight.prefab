@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3231448458601331344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2604480412187118311}
+  - component: {fileID: 3431085214569097291}
+  m_Layer: 0
+  m_Name: MeleeAttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2604480412187118311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231448458601331344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6048025625645032433}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3431085214569097291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231448458601331344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31246dfd27f0dcd42926d9ff48c2e48a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxSize: {x: 2, y: 2, z: 2}
 --- !u!1 &6048025625645530625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,9 +1811,11 @@ GameObject:
   - component: {fileID: 6048025625645032433}
   - component: {fileID: 6048025625654905931}
   - component: {fileID: 6520464845472940370}
+  - component: {fileID: 974092929299265350}
   - component: {fileID: 3725977350335383684}
   - component: {fileID: 7393588227038571689}
   - component: {fileID: 2361732465979016842}
+  - component: {fileID: 4923111873580778522}
   - component: {fileID: -7912235698860584887}
   m_Layer: 0
   m_Name: Knight
@@ -1797,6 +1844,7 @@ Transform:
   - {fileID: 6048025625645032445}
   - {fileID: 6048025625645032437}
   - {fileID: 6048025625645032385}
+  - {fileID: 2604480412187118311}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1833,6 +1881,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsing: 0
+--- !u!114 &974092929299265350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048025625645531089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c968846283269344a990b627d102d38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyMotionIdx: 0
+  importanceAttackNo: 0
+  attackDamage: 2
+  attackRange: 2
+  attackCoolTime: 2
+  effectPrefab: {fileID: 0}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  attackCollision: {fileID: 3431085214569097291}
 --- !u!143 &3725977350335383684
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1864,6 +1934,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 2
+  posTargets: []
+  posTarget: {fileID: 0}
+  posTargetIdx: 0
 --- !u!195 &2361732465979016842
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1886,6 +1959,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4923111873580778522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048025625645531089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d94b66bc6c1544d9ede6b6da6fb127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-7912235698860584887
 MonoBehaviour:
   m_ObjectHideFlags: 0

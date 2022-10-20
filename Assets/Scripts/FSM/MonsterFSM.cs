@@ -32,13 +32,9 @@ public class MonsterFSM : MonoBehaviour
     private void Start()
     {
         fov = GetComponent<FieldOfView>();
-        fsmManager = new StateMachine<MonsterFSM>(this, new StateRomming());
+        fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
 
-        stateIdle stateIdle = new stateIdle();
-        stateIdle.isRomming = true;
-        fsmManager.AddStateList(stateIdle);
         fsmManager.AddStateList(new stateMove());
-        fsmManager.AddStateList(new stateSleep());
         fsmManager.AddStateList(new stateAttack());
 
     }
