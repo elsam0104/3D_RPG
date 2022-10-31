@@ -44,5 +44,6 @@ public class StateAttackController : MonoBehaviour
     public void OnCheckAttackCollider(int attackIdx)
     {
         Debug.Log("=========== Attack Index : " + attackIdx);
+        GetComponent<IAttackAble>()?.OnExeculteAttack();
     }
 }

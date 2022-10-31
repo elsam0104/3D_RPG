@@ -1810,13 +1810,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6048025625645032433}
   - component: {fileID: 6048025625654905931}
+  - component: {fileID: 9134486358228811937}
+  - component: {fileID: 555804187931101520}
   - component: {fileID: 6520464845472940370}
   - component: {fileID: 974092929299265350}
   - component: {fileID: 3725977350335383684}
-  - component: {fileID: 7393588227038571689}
   - component: {fileID: 2361732465979016842}
   - component: {fileID: 4923111873580778522}
   - component: {fileID: -7912235698860584887}
+  - component: {fileID: 9142783989275184776}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -1868,6 +1870,52 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9134486358228811937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048025625645531089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787bdc6bf7e64a34286d74d1683b6309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 0
+  posTargets: []
+  posTarget: {fileID: 0}
+  posTargetIdx: 0
+  maxHP: 100
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  projectileStartTransform: {fileID: 6048025625645032357}
+  weaponHitTranform: {fileID: 6048025625645031993}
+  attackBehaviours:
+  - {fileID: 555804187931101520}
+  - {fileID: 974092929299265350}
+--- !u!114 &555804187931101520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048025625645531089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7566017ae390b438e616744f560d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anyMotionIdx: 1
+  importanceAttackNo: 1
+  attackDamage: 3
+  attackRange: 10
+  attackCoolTime: 5
+  effectPrefab: {fileID: 5951623249183857036, guid: 936eecbb8ecf069408845af1ca58bb62, type: 3}
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6520464845472940370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,22 +1969,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &7393588227038571689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6048025625645531089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fdc4e24ad82f6d4cb158355c187dd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 2
-  posTargets: []
-  posTarget: {fileID: 0}
-  posTargetIdx: 0
 --- !u!195 &2361732465979016842
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1992,6 +2024,19 @@ MonoBehaviour:
   blockLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!65 &9142783989275184776
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048025625645531089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6048025625645531091
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ public class MonsterFSM : MonoBehaviour
     private FieldOfView fov;
     public Transform target => fov.FirstTarget;
 
+    protected UnityEngine.AI.NavMeshAgent agent;
+    protected Animator animator;
+
     public float attackRange;
 
     public Transform[] posTargets;
@@ -29,16 +32,16 @@ public class MonsterFSM : MonoBehaviour
             return (distance <= attackRange);
         }
     }
-    private void Start()
+    protected virtual void Start()
     {
         fov = GetComponent<FieldOfView>();
-        fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
 
+        fsmManager = new StateMachine<MonsterFSM>(this, new stateIdle());
         fsmManager.AddStateList(new stateMove());
         fsmManager.AddStateList(new stateAttack());
 
     }
-    private void Update()
+    protected virtual void Update()
     {
         fsmManager.OnUpdate(Time.deltaTime);
     }

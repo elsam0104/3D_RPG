@@ -19364,10 +19364,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7912235698860584887, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: eyeRadius
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6048025625645032433, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -19416,30 +19412,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
-    - target: {fileID: 7393588227038571689, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: posTarget
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7393588227038571689, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: posTargets.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7393588227038571689, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: posTargets.Array.data[0]
-      value: 
-      objectReference: {fileID: 1301766891}
-    - target: {fileID: 7393588227038571689, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: posTargets.Array.data[1]
-      value: 
-      objectReference: {fileID: 872347345}
-    - target: {fileID: 7393588227038571689, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: posTargets.Array.data[2]
-      value: 
-      objectReference: {fileID: 1621878043}
-    - target: {fileID: 7393588227038571689, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
-      propertyPath: posTargets.Array.data[3]
-      value: 
-      objectReference: {fileID: 837896024}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 935cf889fd0d6ad479dc24ad25ef3644, type: 3}
 --- !u!1001 &1880248988
